@@ -1,0 +1,24 @@
+.form_field {
+	margin-bottom: 10px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+}
+
+.form_field label {
+	font-family: Arial;
+}
+
+.text-field {
+border-radius:5px;
+border-width:2px;
+display:block;
+}
+
+#submit {
+	background-color: rgb(255, 190, 64);
+	border-radius:5px;
+	border-style:none;
+	color:white;
+	font-weight:bold;
+	width:75px; height:30px;
+}

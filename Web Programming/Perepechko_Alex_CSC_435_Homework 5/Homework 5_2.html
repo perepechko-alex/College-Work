@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script language="javascript" type="text/javascript">
+function addtext() {
+    var newtext = document.chat.name.value;
+    var newtext2 = document.chat.message.value;
+    document.chat.output.value += newtext + " : " + newtext2 + "\n";
+     //$("#name").append("output"+ newtext + ": " + newtext2);
+}
+</script>
+</head>
+<body>
+<div id="page-wrap">
+
+    <p id="name-area"></p>
+    
+    <div id="chat-wrap"><div id="chat-area"></div></div>
+    
+    <form id="sendmessage" name="chat">
+        <p>Your message: </p>
+        <textarea id="textarea" name="output" style="width: 500px; height: 150px;"></textarea>
+        <br>Name: <input type="text" name="name" id="you">
+            Message: <input type="text" name="message" style="width: 243px">
+    </form>
+ <button type="button" id="send" onClick="addtext();">Send!</button> 
+</div>
+</body>
+</html>

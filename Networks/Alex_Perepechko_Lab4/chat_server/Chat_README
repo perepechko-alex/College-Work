@@ -1,0 +1,8 @@
+To execute the chat_receiver.py and chat_sender.py, open both files in two different terminals as follows:
+
+python chat_receiver.py --port=####
+python chat_sender.py --port=####
+
+NOTE: The port numbers should be the same, since the receiver code will receive information being sent on the same port as the sender code is sending.
+
+The user can input strings and values into the sender window that will appear on the receiver window when they hit the 'enter' key. To terminate both the receiver and sender, type the word 'quit' (without single quotes) into the sender window. This will terminate both programs.

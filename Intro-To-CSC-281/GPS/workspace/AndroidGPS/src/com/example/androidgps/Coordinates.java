@@ -1,0 +1,13 @@
+package com.example.androidgps;
+
+public class Coordinates {
+	
+	float longit, lat;
+	
+	public Coordinates(float longit, float lat)
+	{
+		this.longit = longit;
+		this.lat = lat;
+	}
+
+}

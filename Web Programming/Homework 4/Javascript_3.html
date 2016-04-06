@@ -1,0 +1,50 @@
+<html>
+<body>
+
+<script type="text/javascript">
+ function checkAddress()
+ {
+    if(!address.address1.value || !address.address2.value || !address.zip.value)
+    {
+        alert("Please fill in the fields");
+        return false;
+    }
+        return true;
+ }
+
+ function checkState()
+ 	{	 
+    if (!address.menu.value)
+    {
+        alert("Not a valid state");
+            return false;
+    }
+            return true;
+}
+
+function checkZipLength()
+{
+    if (address.zip.value.length < 5)
+    {
+        alert("Not a valid ZIP Code")
+    }
+}
+
+
+</script>
+
+<form name="address" method="Post">
+Address 1: <input type="text" name="address1" id="address1" size="10" ><br />
+Address 2: <input type="text" name="address2" id="address2" size="10"><br />
+State: <br /><select name = "menu" id="menu">
+    <option value = ""></option>
+	<option value = "MD">Maryland</option>
+	<option value = "WA">Washington</option>
+	<option value = "CO">Colorado</option>
+	<option value = "CA">California</option>
+</select><br />
+ZIP Code: <input type="text" name="zip" id="zip"size="10"><br />
+<input type="submit" value="Submit" onclick="checkAddress();checkState();checkZipLength()">
+</form>
+</body>
+</html>

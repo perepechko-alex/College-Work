@@ -1,0 +1,14 @@
+<html>
+<body>
+<script type="text/javascript">
+function getYesterdaysDate() {
+    var date = new Date();
+    date.setDate(date.getDate()-1);
+    alert(date);
+    return (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear();
+}
+</script>
+<input type="submit" value="Show Yesterday's Date" onclick="getYesterdaysDate();">
+
+</body>
+</html>

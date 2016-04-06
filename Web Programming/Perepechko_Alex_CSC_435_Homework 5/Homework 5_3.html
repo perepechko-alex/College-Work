@@ -1,0 +1,45 @@
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="style2.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    var $next =  $active.next().length ? $active.next(): $('#slideshow IMG:first');
+
+    $active.addClass('last-active');
+        
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 3000 );
+});
+</script>
+</head>
+
+<body>
+<div id="slideshow">
+	<ul>
+		<img src="http://www.cutepandapictures.com/wp-content/uploads/2013/08/CutePandababy.jpg" height = "600" width = "850" class="active"/>
+		<img src="http://images.boomsbeat.com/data/images/full/3006/baby-panda_4-jpg.jpg" height="600" width="850" />
+		<img src="http://www.bizarbin.com/wp-content/uploads/2013/01/cute-panda.jpg" height="600" width="850" />
+		<img src="http://www.arcadesplat.com/stock/cute-panda-wallpaper-wide.jpg" height="600" width="850" />
+		<img src="http://hdwallphotos.com/wp-content/uploads/2014/03/Cute-Panda-Wallpapers-HD.jpg" height="600" width="850" />
+	</ul>
+</div>
+
+</body>
+</html>
+</html>

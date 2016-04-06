@@ -1,0 +1,27 @@
+<html>
+<body>
+<script type="text/javascript">
+
+function movieWatching(){
+var movies = [{title: "Her", year: "(2013)", haveWatched:false},
+			 {title: "Random", year: "(2000)", haveWatched:true},
+			 {title: "Movie", year: "(2012)", haveWatched:false},
+			 {title: "Last Movie", year: "(2014)", haveWatched:true}];
+
+var len = movies.length;
+
+for(var i=0; i < len; i++){
+	if (movies[i].haveWatched == false){
+		console.log("You still need to watch " + movies[i].title + movies[i].year);
+	}
+	else{
+		console.log("You have watched " + movies[i].title + movies[i].year);
+
+	}
+	}
+}
+
+movieWatching();
+</script>
+</body>
+</html>

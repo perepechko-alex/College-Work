@@ -1,0 +1,23 @@
+<html>
+<body>
+<script>
+
+var numPrompt = 3,
+    num = [];
+
+while( numPrompt-- ) {
+    num.push( prompt('Please enter a number') );
+}
+
+
+function byName(a, b ) {
+    return b-a
+}
+
+num.sort(byName);
+
+alert(num);
+
+</script>
+</body>
+</html>

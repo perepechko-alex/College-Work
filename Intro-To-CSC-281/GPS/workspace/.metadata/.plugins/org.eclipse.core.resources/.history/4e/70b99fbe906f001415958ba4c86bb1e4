@@ -1,0 +1,32 @@
+package com.example.androidgps;
+
+public class LinkedList 
+{
+	
+	//LinkedList list = new LinkedList();
+	
+	public void add(double longitude, double latitude)
+	{
+
+		System.out.println(longitude + " " + latitude);
+		
+		
+	}
+	
+	public void get(int index)
+	{
+	}
+	
+
+	public int length()
+	{
+		return 0;
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+}

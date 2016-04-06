@@ -1,0 +1,20 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+window.onload = choosePicture;
+var picture = new Array("NES.jpg","SNES.jpg","N64.jpg", "GameCube.jpg", "Wii.jpg");
+
+function choosePicture() {
+	randomNum = Math.floor((Math.random() * picture.length));
+	document.getElementById("myPicture").src = picture[randomNum];
+	}
+	
+</script>
+</head>	
+<body>
+<img src="" width="640" height="480" id="myPicture" alt="console" />
+</body>
+
+</html>

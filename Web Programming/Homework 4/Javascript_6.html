@@ -1,0 +1,26 @@
+<html>
+<body>
+	<h1 id ="h1">Movies That I Have Seen</h1>
+	<ui id ="list"></u;>
+<script type="text/javascript">
+function movieWatching(){
+	var movies = [{title: "Her", year: "(2013)", haveWatched:true},
+			 {title: "Random", year: "(2000)", haveWatched:true},
+			 {title: "Movie", year: "(2012)", haveWatched:true},
+			 {title: "Last Movie", year: "(2014)", haveWatched:true}];
+
+var len = movies.length;
+
+for(var i=0; i < len; i++){
+	var mov = document.createElement("LI");
+	var textnode = document.createTextNode("I have watched " + movies[i].title + movies[i].year);
+	mov.appendChild(textnode);
+	document.getElementById("list").appendChild(mov);
+	}
+}
+movieWatching();		
+
+</script>
+
+</body>
+</html>

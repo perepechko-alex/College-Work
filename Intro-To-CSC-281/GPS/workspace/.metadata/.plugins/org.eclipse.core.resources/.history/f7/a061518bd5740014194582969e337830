@@ -1,0 +1,151 @@
+package com.example.androidgps;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+
+public class MainActivity extends Activity{
+
+	PlotView plotview;
+	ArrayList<Coordinates> coordinates = new ArrayList<Coordinates>();
+	
+	public class PlotView extends View {
+		Bitmap dcmap;
+		float scale;
+
+		// nested class that imports and sets up the dcmap
+		public PlotView(Context context) {
+			super(context);
+			dcmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
+					getResources(), R.drawable.dcmap), 1000, 1000, false);
+		}
+
+		protected void onDraw(Canvas g) {
+			if (g.getWidth() < g.getHeight())
+				scale = (float) g.getWidth() / 1000;
+			else
+				scale = (float) g.getHeight() / 1000;
+			
+
+			g.scale(scale, scale);
+
+			Paint paint = new Paint();
+						
+			g.drawBitmap(dcmap, 0, 0, paint);
+			
+			for (int i = 0; i < coordinates.size(); i++)
+				g.drawCircle(coordinates.get(i).longit,coordinates.get(i).lat,10,paint);
+
+			for (int i = 0; i < coordinates.size() - 1; i++)
+				g.drawLine(coordinates.get(i).longit, coordinates.get(i).lat, coordinates.get(i+1).longit, coordinates.get(i+1).lat, paint);
+			
+			
+		}
+
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		//initializeGPS();
+		//list.add(55.5, 66.5);
+		super.onCreate(savedInstanceState);
+		plotview = new PlotView(this);
+		setContentView(plotview);
+		//list.lat = (float) 44.4;
+		//list.longit = (float) 88.4;
+		
+		//coordinates.add(new Coordinates((float) (((getLongitude()-DC_WEST)/(DC_EAST-DC_WEST))*1000), 
+				//(float) (((getLatitude()-DC_NORTH)/(DC_SOUTH-DC_NORTH))*1000)));
+		//coordinates.add(new Coordinates(5,5));
+		coordinates.add(new Coordinates((float) (((500-DC_WEST)/(DC_EAST-DC_WEST))*1000), 
+				(float) (((600-DC_NORTH)/(DC_SOUTH-DC_NORTH))*1000)));		
+		coordinates.add(new Coordinates((float) (((500-DC_WEST)/(DC_EAST-DC_WEST))*1000), 
+				(float) (((700-DC_NORTH)/(DC_SOUTH-DC_NORTH))*1000)));
+		
+	
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	static final double DC_WEST = -77.119789, DC_EAST = -76.909399,
+			DC_NORTH = 38.99554, DC_SOUTH = 38.79163;
+	// AU is 38.936989,-77.090637
+	private LocationManager lm;
+
+	private void initializeGPS() {
+		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 0,
+				new LocationListener() {
+					public void onLocationChanged(Location location) {
+					}
+
+					public void onProviderDisabled(String provider) {
+					}
+
+					public void onProviderEnabled(String provider) {
+					}
+
+					public void onStatusChanged(String provider, int status,
+							Bundle extras) {
+					}
+				});
+	}
+
+	private double getLatitude() {
+		if (lm == null
+				|| lm.getLastKnownLocation(LocationManager.GPS_PROVIDER) == null)
+			return 0;
+		return lm.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+				.getLatitude();
+	}
+
+	private double getLongitude() {
+		if (lm == null
+				|| lm.getLastKnownLocation(LocationManager.GPS_PROVIDER) == null)
+			return 0;
+		return lm.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+				.getLongitude();
+	}
+
+	/*@Override
+	public void run() {
+		while(true)
+		{
+			//list.longit = (float) ((getLongitude()-DC_WEST)/(getLongitude()-DC_EAST)*1000);
+			//list.lat = (float) ((getLatitude()-DC_NORTH)/(getLongitude()-DC_SOUTH)*1000);
+		}
+		
+	}*/
+
+}

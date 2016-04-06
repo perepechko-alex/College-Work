@@ -1,0 +1,37 @@
+package com.example.androidgps;
+
+import org.w3c.dom.Node;
+
+public class LinkedList 
+{
+	private Node head;
+	int count;
+	public LinkedList()
+	{
+		head = new Node(null);
+		count = 0;
+	}
+	
+	//LinkedList list = new LinkedList();
+	
+	public void add(double longitude, double latitude)
+	{
+		Node temp = new Node(data);
+		System.out.println(longitude + " " + latitude);
+		
+		
+	}
+	
+	public void get(int index)
+	{
+	}
+	
+
+	public int length()
+	{
+		return 0;
+	}
+
+
+	
+}

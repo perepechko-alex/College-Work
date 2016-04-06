@@ -1,0 +1,38 @@
+<html>
+<body>
+
+<script type="text/javascript">
+	function CoinStar(money){
+
+	quarters = Math.floor(money/25);
+	money = money % 25;
+	var q = quarters.toString();
+
+	dimes = Math.floor(money/10);
+	money = money % 10;
+	var d = dimes.toString();
+
+
+	nickles = Math.floor(money/5);
+	money = money % 5;
+	var n = nickles.toString();
+	
+	pennies = money;
+	var p = pennies.toString();
+	
+	var total =  q + " quarter(s), " + d + " dime(s), " + n + " nickle(s), and " + p + " pennies";
+	return total;
+	
+}
+	
+	function main(){
+	var coins = prompt("Enter an amount of money in cents: ");
+	var amount = CoinStar(coins);
+	alert("The total amount is " + amount);
+
+}
+
+main();
+</script>
+</body>
+</html>

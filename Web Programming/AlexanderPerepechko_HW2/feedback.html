@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#nav
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+#list
+{
+	float:left;
+}
+#link
+{
+display:block;
+width:80px;
+background-color:#ffd022; 
+}
+</style>
+</head>
+<body>
+	<ul id="nav">
+		<li id="list"><a href="menus.html" id="link"><b>Menus</b></a></li>
+		<li id="list"><a href="events.html" id="link"><b>Events</b></a></li>
+		<li id="list"><a href="gallery.html" id="link"><b>Gallery</b></a></li>
+		<li id="list"><a href="locations.html" id="link"><b>Locations</b></a></li>
+		<li id="list"><a href="feedback.html" id="link"><b>Feedback</b></a></li>
+	</ul>
+Comment:<br><textarea rows="4" cols="45" name="feedback"></textarea><br>
+<form action="comments.html" method="post">
+	Which of these drinks were your favorite? Feel free to pick more than one!
+<select multiple name="q">
+	<option value="Espresso">Espresso</option>
+	<option value="Mocha">Mocha</option>
+	<option value="Vanilla Latte">Vanilla Latte</option>
+</select>
+<input type="submit"><a href="comments.html"></a>
+</form><br>
+	<center><a href="index.html">Click this link to go back home</a></center>
+</body>
+</html>

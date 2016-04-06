@@ -1,0 +1,19 @@
+.image-container{
+	margin:auto;
+	width:650px;
+	position:relative;
+}
+.img{
+	position:absolute;
+	left:0;
+	top:0;
+}
+.centered-text{
+	position:absolute;
+	text-align: center;
+	font-family: 'Gabriela', serif;
+	color:white;
+	font-size:18px;
+	left:100px;
+	top:45px; 
+}
