@@ -1,0 +1,37 @@
+/*#submit {
+    background-color: rgb(144, 144, 144);
+    border-radius:5px;
+    border-style:none;
+    color:white;
+    font-weight:bold;
+    width:75px; height:30px;
+}*/
+
+#formField {    
+    position:relative;
+    margin:auto;
+    width: 1500px;
+
+}
+
+#area {
+    position:absolute;
+    left:0;
+    border-style:none;
+    padding-left:400px;
+    padding-bottom: 15px;
+
+}
+
+input[type="radio"]{
+	display:inline-block;
+	width:19px;
+	height:19px;
+	margin-right: 250px;  
+    position: relative;  
+}
+
+label{
+    display:inline-block;
+    margin-left: 1110px;
+}

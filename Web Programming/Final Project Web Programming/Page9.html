@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<link rel="stylesheet" type="text/css" media="screen" href="style2.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<p style="float: left">Progress: </p>
+<br><meter value="9" min="0" max ="9" style="float: left"> 9 out of 9</meter>
+
+
+<center><h2>Audio Track:</h2>
+<audio id = "sound" controls loop>
+	<source src="audio/bubbles.mp3" type="audio/mpeg">
+</audio>
+
+<div>
+  <button onclick="document.getElementById('sound').play()">Play</button>
+  <button onclick="document.getElementById('sound').pause()">Pause</button>
+</div>
+
+</center><br>
+<center><b>Please click on the radio button of the item that you believe the sound corresponds to.</b></center>
+<form action="End.html" method="post">
+	<div id = "formField">
+		<img src="http://garytray.files.wordpress.com/2011/08/waves.jpg" alt="waves" height="250" width="250">
+		<img src="http://best-diving.org/images/bubble.jpg" alt="bubbles" height="250" width="250">
+		<img src="http://wvmetronews.com/wordpress/wp-content/uploads/2014/02/Water-Faucet-2.jpg" alt="running_water" height="250" width="250">
+		<img src="http://www.stlwater.com/images/waterdrip.jpg" alt="dripping_water" height="250" width="250"><br>
+
+		<input type="radio" name="response" id="waves2" value="waves2">
+		<input type="radio" name="response" id="bubbles" value="bubbles">
+		<input type="radio" name="response" id="running_water" value="running_water">
+		<input type="radio" name="response" id="dripping_water" value="dripping_water">
+		<input type="radio" name ="response" id="None" value="None"><label>None</label>
+	</div>
+	<p><center><input type="submit" id="submit" value="Submit" onclick="return checkButton();"> This button cannot be pressed until 10 seconds have passed. </center></p>
+	<div id="area">
+	<br>Type in any comments you have about the sound in this textbox below:
+	<br><textarea rows="9" cols="54"></textarea>
+		
+	
+	</div>
+
+</form>
+
+<script type="text/javascript">
+
+function cacheImg(array) {
+    if (!cacheImg.list) {
+        cacheImg.list = [];
+    }
+    for (var i = 0; i < array.length; i++) {
+        var images = new Image();
+        images.src = array[i];
+        cacheImg.list.push(images);
+    }
+}
+
+var imageArray= [
+	"http://garytray.files.wordpress.com/2011/08/waves.jpg",
+    "http://best-diving.org/images/bubble.jpg",
+    "http://wvmetronews.com/wordpress/wp-content/uploads/2014/02/Water-Faucet-2.jpg",
+    "http://www.stlwater.com/images/waterdrip.jpg"
+];
+
+cacheImg(imageArray);
+</script>
+
+<script type="text/javascript">
+
+function checkButton()
+{
+	if (document.getElementById('waves2').checked == false && document.getElementById('running_').checked == false && document.getElementById('running_water').checked == false && document.getElementById('dripping_water').checked == false && document.getElementById('None').checked == false)
+	{
+		alert("Please select an option.");
+		return false;
+
+	}
+	return true;
+
+}
+
+$('#submit').attr("disabled", "disabled");
+setTimeout('enableButton()', 10000);
+
+function enableButton(){
+   $('#submit').removeAttr('disabled');
+}
+
+window.onload = function() {
+    document.getElementById("sound").play();
+}
+
+document.getElementById('submit').disabled = true;
+setTimeout(enableButton, 10000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<center><h2>Instructions, please read!</h2></center>
+<p>In this experiment, an audio track will play when the page loads. The track will loop continuously. There will be images and/or radio buttons on every page. The goal is for the listener to choose the image which they identify the sound with. The listener is to select one of the options presented in the buttons, and/or describe it in the textbox -- an area for the listener to write down any other comments is also presented on every page, and the user is encouraged to describe the sound to the best of their abilities. There is <strong>no right or wrong answer</strong>.</p> 
+
+<p>Note: The "submit" button will not activate until 10 seconds have passed. Please take the time to listen to the audio carefully and thoroughly.</p>
+
+<p>Below is the audio interface which will be used throughout the experiment. The listener has the ability to pause and play the sound, and can also select a specific instance of the sound out of its total length.</p>
+
+<center><h2>Audio Track:</h2>
+<audio id = "sound" controls loop>
+	<source src="audio/wood_knock.mp3" type="audio/mpeg">
+</audio>
+
+<div>
+  <button onclick="document.getElementById('sound').play()">Play</button>
+  <button onclick="document.getElementById('sound').pause()">Pause</button>
+</div></center>
+
+<p>Please take the time to fill in the following information:</p>
+<p>Hit the 'Next' button below when you have filled in the fields to continue on to the experiement.</p>
+<form name = "form1" id = "form1" action="Page1.html" method="post">
+Name:<input type="text" name="username" id="username"><br>
+Age: <input type="text" name="age" id="age"><br>
+Musical Experience (instruments played): <input type="text" name="music" id="music"><br>
+	<input type="submit" value="Next" id="next" onclick="return checkButton()">
+</form>
+
+<p><center><font size="2">All sounds curtosy of <a href="https://www.freesound.org/" target="_blank">freesound.org</a></font></center></p>
+
+<script type="text/javascript">
+
+
+function checkButton(){
+
+	if (!form1.username.value || !form1.age.value || !form1.music.value){
+		alert("Please fill in all of the fields above");
+		return false;
+	}
+		return true;
+}
+
+</script>
+</body>
+</html>

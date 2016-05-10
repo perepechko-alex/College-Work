@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<p style="float: left">Progress: </p>
+<br><meter value="3" min="0" max ="9" style="float: left"> 3 out of 9</meter>
+
+
+<center><h2>Audio Track:</h2>
+<audio id = "sound" controls loop>
+	<source src="audio/fire.mp3" type="audio/mpeg">
+</audio>
+
+<div>
+  <button onclick="document.getElementById('sound').play()">Play</button>
+  <button onclick="document.getElementById('sound').pause()">Pause</button>
+</div>
+
+</center>
+<p><center><input type="submit" id="submit" value="Submit" onclick="return checkButton();"> This button cannot be pressed until 10 seconds have passed. </center></p>
+<form name = "sub" id ="sub"action="Page4.html" method="post">
+	<div id="area" name="area">
+	<br>Describe the sound that you hear below. Be as specific as possible:
+	<br><textarea id = "txt" name = "txt" rows="9" cols="54"></textarea>
+
+	</div>
+</form>
+<script type="text/javascript">
+
+function checkButton()
+{
+	if (!sub.txt.value)
+	{
+		alert("Please write in the textbox");
+		return false;
+
+	}
+	return true;
+
+}
+
+$('#submit').attr("disabled", "disabled");
+setTimeout('enableButton()', 10000);
+
+function enableButton(){
+   $('#submit').removeAttr('disabled');
+}
+
+window.onload = function() {
+    document.getElementById("sound").play();
+}
+
+document.getElementById('submit').disabled = true;
+setTimeout(enableButton, 10000);
+
+</script>
+</body>
+</html>

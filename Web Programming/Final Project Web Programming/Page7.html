@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<link rel="stylesheet" type="text/css" media="screen" href="style2.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<p style="float: left">Progress: </p>
+<br><meter value="7" min="0" max ="10" style="float: left"> 7 out of 9</meter>
+
+<center><h2>Audio Track:</h2>
+<audio id = "sound" controls loop>
+	<source src="audio/clock_tick.mp3" type="audio/mpeg">
+</audio>
+
+<div>
+  <button onclick="document.getElementById('sound').play()">Play</button>
+  <button onclick="document.getElementById('sound').pause()">Pause</button>
+</div>
+
+</center><br>
+<center><b>Please click on the radio button of the item that you believe the sound corresponds to.</b></center>
+<form action="Page8.html" method="post">
+	<div id = "formField">
+		<img src="http://realtybiznews.com/wp-content/uploads/2013/05/o-DOOR-KNOCK-facebook.jpg" alt="knock" height="250" width="250">
+		<img src="http://greatist.com/sites/default/files/styles/article_main/public/Walking_JR_604.jpg?itok=XshUyZpW" alt="walking" height="250" width="250">
+		<img src="http://www.ikea.com/us/en/images/products/pugg-wall-clock__13080_PE040801_S4.jpg" alt="clock" height="250" width="250">
+		<img src="http://2.bp.blogspot.com/-q8PWwAyxnyI/UIgsBZNHLsI/AAAAAAAAALA/f_lXGLpW7oc/s1600/BallJosh.gif" alt="bouncing_ball" height="250" width="250"><br>
+
+		<input type="radio" name="response" id="door_knock" value="door_knock">
+		<input type="radio" name="response" id="walking" value="walking">
+		<input type="radio" name="response" id="ticking_clock" value="ticking_clock">
+		<input type="radio" name="response" id="bouncing_ball" value="bouncing_ball">
+		<input type="radio" name ="response" id="None" value="None"><label>None</label>
+
+	</div>
+	<p><center><input type="submit" id="submit" value="Submit" onclick="return checkButton();"> This button cannot be pressed until 10 seconds have passed. </center></p>
+	<div id="area">
+	<br>Type in any comments you have about the sound in this textbox below:
+	<br><textarea rows="9" cols="54"></textarea>
+
+	
+	</div>
+</form>
+
+<script type="text/javascript">
+
+function cacheImg(array) {
+    if (!cacheImg.list) {
+        cacheImg.list = [];
+    }
+    for (var i = 0; i < array.length; i++) {
+        var images = new Image();
+        images.src = array[i];
+        cacheImg.list.push(images);
+    }
+}
+
+var imageArray= [
+    "http://realtybiznews.com/wp-content/uploads/2013/05/o-DOOR-KNOCK-facebook.jpg",
+    "http://greatist.com/sites/default/files/styles/article_main/public/Walking_JR_604.jpg?itok=XshUyZpW",
+    "http://www.ikea.com/us/en/images/products/pugg-wall-clock__13080_PE040801_S4.jpg",
+    "http://2.bp.blogspot.com/-q8PWwAyxnyI/UIgsBZNHLsI/AAAAAAAAALA/f_lXGLpW7oc/s1600/BallJosh.gif" alt="bouncing_ball"
+];
+
+cacheImg(imageArray);
+</script>
+
+<script type="text/javascript">
+
+function checkButton()
+{
+	if (document.getElementById('door_knock').checked == false && document.getElementById('walking').checked == false && document.getElementById('ticking_clock').checked == false && document.getElementById('bouncing_ball').checked == false && document.getElementById('None').checked == false)
+	{
+		alert("Please select an option.");
+		return false;
+
+	}
+	return true;
+
+}
+
+$('#submit').attr("disabled", "disabled");
+setTimeout('enableButton()', 10000);
+
+function enableButton(){
+   $('#submit').removeAttr('disabled');
+}
+
+window.onload = function() {
+    document.getElementById("sound").play();
+ 
+}
+
+function enableButton() {
+  document.getElementById('submit').disabled = false;
+}
+
+document.getElementById('submit').disabled = true;
+setTimeout(enableButton, 10000);
+
+</script>
+</body>
+</html>

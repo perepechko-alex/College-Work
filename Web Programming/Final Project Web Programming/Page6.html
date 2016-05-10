@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<link rel="stylesheet" type="text/css" media="screen" href="style2.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<p style="float: left">Progress: </p>
+<br><meter value="6" min="0" max ="9" style="float: left"> 6 out of 9</meter>
+
+<center><h2>Audio Track:</h2>
+<audio id = "sound" controls loop>
+	<source src="audio/sand_paper.mp3" type="audio/mpeg">
+</audio>
+
+<div>
+  <button onclick="document.getElementById('sound').play()">Play</button>
+  <button onclick="document.getElementById('sound').pause()">Pause</button>
+</div>
+
+</center><br>
+<center><b>Please click on the radio button of the item that you believe the sound corresponds to.</b></center>
+<form action="Page7.html" method="post">
+	<div id = "formField">
+		<img src="http://sequoiascape.com/wp-content/uploads/2012/05/Woodchips.jpg" alt="wood_chips" height="250" width="250">
+		<img src="http://wordrat.files.wordpress.com/2013/09/sandgrains.jpg" alt="sand_grain" height="250" width="250">
+		<img src="http://2.bp.blogspot.com/-RMy7XRoykpg/UHcBk--xOCI/AAAAAAAAADg/UbPMgVs27sQ/s1600/Small+Rocks.jpg" alt="rocks" height="250" width="250">
+		<img src="https://www.foamez.com/images/SAND120.jpg" alt="sandpaper" height="250" width="250"><br>
+
+		<input type="radio" name="response" id="wood_chip" value="wood_chip">
+		<input type="radio" name="response" id="sand_grain" value="sand_grain">
+		<input type="radio" name="response" id="rocks" value="rocks">
+		<input type="radio" name="response" id="sandpaper" value="sandpaper">
+		<input type="radio" name ="response" id="None" value="None"><label>None</label>
+
+	</div>
+	<p><center><input type="submit" id="submit" value="Submit" onclick="return checkButton();"> This button cannot be pressed until 10 seconds have passed. </center></p>
+	<div id="area">
+	<br>Describe the motion and act of the sound:
+	<br><textarea rows="9" cols="54"></textarea>
+
+	
+	</div>
+</form>
+
+<script type="text/javascript">
+
+function cacheImg(array) {
+    if (!cacheImg.list) {
+        cacheImg.list = [];
+    }
+    for (var i = 0; i < array.length; i++) {
+        var images = new Image();
+        images.src = array[i];
+        cacheImg.list.push(images);
+    }
+}
+
+var imageArray= [
+    "http://sequoiascape.com/wp-content/uploads/2012/05/Woodchips.jpg" alt="wood_chips",
+    "http://wordrat.files.wordpress.com/2013/09/sandgrains.jpg",
+    "http://2.bp.blogspot.com/-RMy7XRoykpg/UHcBk--xOCI/AAAAAAAAADg/UbPMgVs27sQ/s1600/Small+Rocks.jpg",
+    "https://www.foamez.com/images/SAND120.jpg"
+];
+
+cacheImg(imageArray);
+</script>
+
+<script type="text/javascript">
+
+function checkButton()
+{
+	if (document.getElementById('wood_chip').checked == false && document.getElementById('sand_grain').checked == false && document.getElementById('rocks').checked == false && document.getElementById('sandpaper').checked == false && document.getElementById('None').checked == false)
+	{
+		alert("Please select an option.");
+		return false;
+
+	}
+	return true;
+
+}
+
+$('#submit').attr("disabled", "disabled");
+setTimeout('enableButton()', 10000);
+
+function enableButton(){
+   $('#submit').removeAttr('disabled');
+}
+
+window.onload = function() {
+    document.getElementById("sound").play();
+ 
+}
+
+document.getElementById('submit').disabled = true;
+setTimeout(enableButton, 10000);
+
+</script>
+</body>
+</html>
